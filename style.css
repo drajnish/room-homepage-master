@@ -22,39 +22,18 @@ body {
   flex-direction: column;
 }
 
-.slider-container {
-  position: relative;
-}
-
 .header {
   position: absolute;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 50vw;
-  top: 4em;
-  left: 1.5em;
-  transition: left 0.6s ease;
   z-index: 9;
 }
 
 nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: var(--white);
   position: absolute;
-  width: 100vw;
-  padding: 1.8rem 0;
-  opacity: 0;
-  top: 0;
-  right: 0;
-  transition: opacity 0.8s ease-in-out;
+  /* width: 100vw; */
+  /* padding: 1.8rem 0; */
+  /* top: 0;
+  right: 0; */
   z-index: 3;
-}
-
-nav.active {
-  opacity: 1;
 }
 
 nav ul {
@@ -62,7 +41,6 @@ nav ul {
   justify-content: flex-end;
   align-items: center;
   padding-right: 0.8rem;
-  /* margin: auto; */
 }
 
 nav ul li {
@@ -71,46 +49,20 @@ nav ul li {
   padding: 0.5rem;
 }
 
-nav ul li,
-.close-btn {
-  transform: translateX(-30em);
-  opacity: 0;
-  transition: transform 0.6s ease-in-out, opacity 0.5s linear;
-}
-
-nav.active ul li,
-nav.active .close-btn {
-  opacity: 1;
-  transform: translateX(0);
-}
-
 nav ul li a {
   display: block;
   text-decoration: none;
   color: var(--black);
   font-weight: 700;
+}
+
+.slider-container {
   position: relative;
-}
-
-nav ul li::after {
-  content: "";
-  opacity: 0;
-  width: 40%;
-  height: 3px;
-  background-color: var(--white);
-  position: absolute;
-  transform: translateX(35%);
-  bottom: 0;
-}
-
-nav ul li:hover::after,
-nav ul li:active {
-  opacity: 1;
+  overflow: hidden;
 }
 
 .carousal {
   display: flex;
-  position: relative;
   transform: translateX(0);
   transition: transform 0.5s ease-in-out;
 }
@@ -121,6 +73,7 @@ nav ul li:active {
 
 .hero-img-container picture img {
   width: 100vw;
+  height: 60vh;
   object-fit: cover;
 }
 
@@ -128,8 +81,6 @@ nav ul li:active {
   position: absolute;
   background-color: var(--black);
   display: flex;
-  top: 54vh;
-  right: 0;
 }
 
 .btn-container .left-arrow:hover,
@@ -140,11 +91,11 @@ nav ul li:active {
 .btn-container .left-arrow,
 .btn-container .right-arrow {
   object-fit: cover;
-  padding: 0.88rem 1rem;
+  padding: 0.9rem 1rem;
 }
 
 .content {
-  padding: 1.5rem;
+  padding: 1.8rem;
 }
 
 .content h1 {
@@ -165,32 +116,86 @@ nav ul li:active {
   padding: 2rem 0;
 }
 
+.about .content h1 {
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 0.3rem;
+}
+
 .about img {
   width: 100vw;
 }
 
 .attribution {
+  font-size: 11px;
   margin-top: 10em;
+  text-align: center;
 }
-
 .attribution a {
+  color: hsl(228, 45%, 44%);
   text-decoration: none;
 }
-@media (min-width: 451px) {
-  .btn-container {
-    top: 40vh;
+
+@media (max-width: 767px) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50vw;
+    top: 13vw;
+    left: 8vw;
+    transition: left 0.6s ease;
   }
 
-  .btn-container .left-arrow,
-  .btn-container .right-arrow {
-    padding: 0.95rem 1rem;
+  nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--white);
+    width: 100vw;
+    padding: 1.8rem 0;
+    opacity: 0;
+    top: 0;
+    right: 0;
+    transition: opacity 0.8s ease-in-out;
+  }
+
+  nav.active {
+    opacity: 1;
+  }
+
+  nav ul li,
+  .close-btn {
+    transform: translateX(-100vw);
+    opacity: 0;
+    transition: transform 0.6s ease-in-out, opacity 0.5s linear;
+  }
+
+  nav.active ul li,
+  nav.active .close-btn {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  nav ul li a {
+    position: relative;
+  }
+
+  .btn-container {
+    top: 53vh;
+    right: 0;
   }
 }
 
 @media (min-width: 768px) {
   .header {
     display: inline-block;
-    width: auto;
+    top: 9vh;
+    left: 5vw;
+  }
+
+  .header .logo {
+    width: 130%;
   }
 
   .header .menu {
@@ -198,29 +203,38 @@ nav ul li:active {
   }
 
   nav {
-    display: inline-block;
-    width: auto;
-    right: 35em;
-    opacity: 1;
-    justify-content: center;
-    background-color: transparent;
+    top: 6vh;
+    left: 10vw;
   }
 
   .close-btn {
     display: none;
   }
 
-  nav ul {
-    padding: 0;
-  }
-
   nav ul li {
-    opacity: 1;
-    transform: translateX(0);
+    padding: 0.8rem 1rem;
+    position: relative;
   }
 
   nav ul li a {
+    font-size: 14px;
     color: rgba(255, 255, 255, 0.7);
+  }
+
+  nav ul li::after {
+    content: "";
+    opacity: 0;
+    width: 30%;
+    height: 3px;
+    background-color: var(--white);
+    position: absolute;
+    transform: translateX(50%);
+    bottom: 0;
+  }
+
+  nav ul li:hover::after,
+  nav ul li:active {
+    opacity: 1;
   }
 
   .hero-img-container {
@@ -247,29 +261,13 @@ nav ul li:active {
   }
 
   .btn-container {
-    top: 68vh;
-    right: 28vw;
+    bottom: 0;
+    left: 60vw;
   }
 
   .btn-container .left-arrow,
   .btn-container .right-arrow {
-    padding: 0.95rem 1rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  nav {
-    right: 58em;
-  }
-
-  .btn-container {
-    top: 60vh;
-    right: 31vw;
-  }
-
-  .btn-container .left-arrow,
-  .btn-container .right-arrow {
-    padding: 0.9rem 1.02rem;
+    padding: 0.6rem 1rem;
   }
 
   .about {
@@ -277,40 +275,39 @@ nav ul li:active {
   }
 
   .about img {
-    width: 25%;
+    width: 30vw;
   }
 }
 
-@media (min-width: 1366px) {
-  nav {
-    right: 72em;
-    font-size: 14px;
+@media (min-width: 1024px) {
+  .content {
+    padding: 3rem;
   }
 
-  .btn-container {
-    top: 64vh;
-    right: 29vw;
+  .content h1 {
+    font-size: 24px;
+  }
+
+  .about .content {
+    padding: 3rem 1.5rem 1rem;
   }
 
   .btn-container .left-arrow,
   .btn-container .right-arrow {
-    padding: 1.25rem 1.92rem;
+    padding: 1.5rem 1.8rem;
   }
 }
 
 @media (min-width: 1440px) {
-  nav {
-    font-size: 14px;
-    right: 75em;
+  .content {
+    padding: 5rem;
   }
 
-  .btn-container {
-    top: 86vh;
-    right: 29vw;
+  .content h1 {
+    font-size: 32px;
   }
 
-  .btn-container .left-arrow,
-  .btn-container .right-arrow {
-    padding: 1.8rem 2.061rem;
+  .about .content {
+    padding: 4rem 2.5rem 2rem;
   }
 }

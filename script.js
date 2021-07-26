@@ -13,12 +13,12 @@ let idx = 0;
 
 menuBtn.addEventListener("click", () => {
   menu.classList.add("active");
-  header.style.left = "-16em";
+  header.style.left = "-60vw";
 });
 
 closeBtn.addEventListener("click", () => {
   menu.classList.remove("active");
-  header.style.left = "1.5em";
+  header.style.left = "6vw";
 });
 
 let interval = setInterval(run, 2000);
